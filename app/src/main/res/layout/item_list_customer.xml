@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:descendantFocusability="blocksDescendants">
+    <TextView
+        android:id="@+id/customer_name"
+        style="@style/Widget.My.ListItemCustomerTextView"
+        android:layout_width="125dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:fontFamily="sans-serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mohammad Reza Aliabadi" />
+
+
+    <TextView
+        android:id="@+id/customer_national_Number"
+        style="@style/Widget.My.ListItemCustomerTextView"
+        android:layout_width="100dp"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/customer_name"
+        app:layout_constraintEnd_toStartOf="@+id/customer_tel"
+        app:layout_constraintStart_toEndOf="@+id/customer_name"
+        tools:text="34165496554" />
+
+    <TextView
+        android:id="@+id/customer_tel"
+        style="@style/Widget.My.ListItemCustomerTextView"
+        android:layout_width="105dp"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/customer_national_Number"
+        app:layout_constraintEnd_toStartOf="@+id/customer_list_popup_menu"
+        app:layout_constraintStart_toEndOf="@id/customer_national_Number"
+        tools:text="09164351332" />
+
+    <Button
+        android:id="@+id/customer_list_popup_menu"
+        style="@style/IconOnlyButton"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        app:icon="@drawable/ic_more_vert"
+        app:layout_constraintBaseline_toBaselineOf="@+id/customer_tel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/customer_tel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/margin_between_elements2"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/margin_between_elements2"
+        app:cardPreventCornerOverlap="true">
+        <LinearLayout
+            android:layout_margin="@dimen/margin_between_elements"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/bill_payment_label"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/bill_payment_req"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:prefixText="@string/currency_symbol">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bill_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/bill_off_label"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/bill_off_req"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:prefixText="@string/currency_symbol">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bill_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_price_label"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_between_elements2"
+                    android:text="@string/item_quantity"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorPrimary" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/item_name"
+        style="@style/Widget.My.Header"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:text="@string/item"
+        app:layout_constraintEnd_toStartOf="@+id/item_quantity_label"
+        app:layout_constraintHorizontal_weight="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_layout" />
+
+
+    <TextView
+        android:id="@+id/item_quantity_label"
+        style="@style/Widget.My.Header"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:text="@string/item_quantity_header"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/item_price"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintStart_toEndOf="@+id/item_name"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"  />
+
+    <TextView
+        android:id="@+id/item_price"
+        style="@style/Widget.My.Header"
+        android:layout_below="@+id/item_name"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:text="@string/price"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/item_total_price"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/item_quantity_label"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"  />
+
+    <TextView
+        android:id="@+id/item_total_price"
+        style="@style/Widget.My.Header"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:text="@string/item_total_price_label"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/item_price"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"  />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_quantity_label" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:layout_margin="@dimen/margin_between_elements"
+        tools:listitem="@layout/item_list_bill_item" />
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginBottom="@dimen/margin_between_elements"
+        android:contentDescription="@string/add_new_item"
+        android:src="@drawable/ic_bill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

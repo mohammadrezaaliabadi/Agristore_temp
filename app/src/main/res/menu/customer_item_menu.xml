@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_customer_buy"
+        android:icon="@drawable/ic_shopping_basket_24"
+        android:title="@string/buy"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_customer_detail"
+        android:icon="@drawable/ic_details_24"
+        android:title="@string/detail"
+        app:showAsAction="collapseActionView"/>
+</menu>

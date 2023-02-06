@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.example.agristore.fragment.ItemListFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list"></fragment>
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.example.agristore.fragment.AddItemFragment"
+        android:label="AddItemFragment">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addItemFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.example.agristore.fragment.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail">
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_itemDetailFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_itemDetailFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+        <action
+            android:id="@+id/action_itemDetailFragment_to_billItemListFragment"
+            app:destination="@id/billItemListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.agristore.fragment.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_billListFragment"
+            app:destination="@id/billListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_customerListFragment"
+            app:destination="@id/customerListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addCustomerFragment"
+            app:destination="@id/addCustomerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_billItemListFragment"
+            app:destination="@id/billItemListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addBillHomeFragment"
+            app:destination="@id/addBillHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billListFragment"
+        android:name="com.example.agristore.fragment.BillListFragment"
+        android:label="fragment_bill_list"
+        tools:layout="@layout/fragment_bill_list" />
+    <fragment
+        android:id="@+id/customerListFragment"
+        android:name="com.example.agristore.fragment.CustomerListFragment"
+        android:label="fragment_customer_list"
+        tools:layout="@layout/fragment_customer_list" />
+    <fragment
+        android:id="@+id/addCustomerFragment"
+        android:name="com.example.agristore.fragment.AddCustomerFragment"
+        android:label="fragment_add_customer"
+        tools:layout="@layout/fragment_add_customer">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="customer_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addCustomerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetailFragment"
+        android:name="com.example.agristore.fragment.CustomerDetailFragment"
+        android:label="fragment_customer_detail"
+        tools:layout="@layout/fragment_customer_detail">
+        <argument
+            android:name="customer_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_customerDetailFragment_to_addCustomerFragment"
+            app:destination="@id/addCustomerFragment" />
+        <action
+            android:id="@+id/action_customerDetailFragment_to_addBillFragment"
+            app:destination="@id/addBillFragment" />
+        <action
+            android:id="@+id/action_customerDetailFragment_to_billItemListFragment"
+            app:destination="@id/billItemListFragment" />
+        <action
+            android:id="@+id/action_customerDetailFragment_to_addBillHomeFragment"
+            app:destination="@id/addBillHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBillFragment"
+        android:name="com.example.agristore.fragment.AddBillFragment"
+        android:label="fragment_add_bill"
+        tools:layout="@layout/fragment_add_bill">
+        <argument
+            android:name="customer_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/billItemListFragment"
+        android:name="com.example.agristore.fragment.BillItemListFragment"
+        android:label="fragment_bill_item_list"
+        tools:layout="@layout/fragment_bill_item_list">
+        <argument
+            android:name="billId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_billItemListFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBillHomeFragment"
+        android:name="com.example.agristore.fragment.AddBillHomeFragment"
+        android:label="fragment_add_bill_home"
+        tools:layout="@layout/fragment_add_bill_home" >
+        <argument
+            android:name="customer_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addBillHomeFragment_to_addBillFragment"
+            app:destination="@id/addBillFragment" />
+        <action
+            android:id="@+id/action_addBillHomeFragment_to_addBillCardFragment"
+            app:destination="@id/addBillCardFragment" />
+        <action
+            android:id="@+id/action_addBillHomeFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+        <action
+            android:id="@+id/action_addBillHomeFragment_to_billItemListFragment"
+            app:destination="@id/billItemListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBillCardFragment"
+        android:name="com.example.agristore.fragment.AddBillCardFragment"
+        android:label="fragment_add_bill_card"
+        tools:layout="@layout/fragment_add_bill_card" />
+</navigation>
