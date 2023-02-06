@@ -162,7 +162,9 @@
             app:destination="@id/customerDetailFragment" />
         <action
             android:id="@+id/action_addBillHomeFragment_to_billItemListFragment"
-            app:destination="@id/billItemListFragment" />
+            app:destination="@id/billItemListFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/addBillCardFragment"

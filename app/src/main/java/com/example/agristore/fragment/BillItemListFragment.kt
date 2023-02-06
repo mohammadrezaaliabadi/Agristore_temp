@@ -66,7 +66,6 @@ class BillItemListFragment : Fragment() {
         xmlToPDFLifecycleObserver = XmlToPDFLifecycleObserver(requireActivity())
         lifecycle.addObserver(xmlToPDFLifecycleObserver)
         addMenu()
-
     }
 
     private fun pdfGenerator() {
