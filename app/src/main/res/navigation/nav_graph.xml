@@ -9,7 +9,7 @@
         android:id="@+id/itemListFragment"
         android:name="com.example.agristore.fragment.ItemListFragment"
         android:label="fragment_item_list"
-        tools:layout="@layout/fragment_item_list"></fragment>
+        tools:layout="@layout/fragment_item_list" />
     <fragment
         android:id="@+id/addItemFragment"
         android:name="com.example.agristore.fragment.AddItemFragment"
@@ -138,7 +138,7 @@
         tools:layout="@layout/fragment_bill_item_list">
         <argument
             android:name="billId"
-            app:argType="integer" />
+            app:argType="long" />
         <action
             android:id="@+id/action_billItemListFragment_to_itemDetailFragment"
             app:destination="@id/itemDetailFragment" />

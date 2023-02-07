@@ -6,25 +6,31 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Item
+import com.example.agristore.data.entities.getFormattedOff
 import com.example.agristore.data.entities.getFormattedPrice
-import com.example.agristore.databinding.ItemListItemBinding
+import com.example.agristore.databinding.CardItemBinding
 
 class ItemListAdapter(private val onItemClicked: (Item) -> Unit):ListAdapter<Item, ItemListAdapter.ItemViewHolder>(
     DiffCallback
 ) {
-    class ItemViewHolder(private var binding: ItemListItemBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: Item) {
+    class ItemViewHolder(private var binding: CardItemBinding):RecyclerView.ViewHolder(binding.root){
+        fun bind(item: Item,onItemClicked: (Item) -> Unit) {
             binding.itemName.text = item.name
             binding.itemPrice.text = item.getFormattedPrice()
             binding.itemQuantity.text = item.quantity.toString()
+            binding.itemOff.text = item.getFormattedOff()
+            binding.itemDescription.text = item.description
+            binding.buttonItemAction.setOnClickListener {
+                onItemClicked(item)
+            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
-            ItemListItemBinding.inflate(
+            CardItemBinding.inflate(
                 LayoutInflater.from(
                     parent.context
-                )
+                ),parent,false
             )
         )
     }
@@ -34,7 +40,7 @@ class ItemListAdapter(private val onItemClicked: (Item) -> Unit):ListAdapter<Ite
         holder.itemView.setOnClickListener {
             onItemClicked(current)
         }
-        holder.bind(current)
+        holder.bind(current,onItemClicked)
     }
 
     companion object {

@@ -70,7 +70,7 @@ class ItemBuyListAdapter(private val onItemClicked: (Item, Long) -> Unit) :
             ItemListItemBuyBinding.inflate(
                 LayoutInflater.from(
                     parent.context
-                )
+                ),parent,false
             )
         )
     }

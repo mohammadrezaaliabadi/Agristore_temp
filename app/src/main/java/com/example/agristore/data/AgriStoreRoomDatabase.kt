@@ -13,7 +13,7 @@ import com.example.agristore.data.entities.typeconverter.ImageTypeConverter
 
 @Database(
     entities = [Customer::class, CustomerFTS::class, Item::class,ItemFTS::class, Product::class, ProductFTS::class, Bill::class, BillItem::class, Image::class, ItemUnit::class, Company::class, Store::class],
-    version = 13
+    version = 15
 )
 @TypeConverters(value = [ImageTypeConverter::class, DateTypeConvertor::class])
 abstract class AgriStoreRoomDatabase : RoomDatabase() {

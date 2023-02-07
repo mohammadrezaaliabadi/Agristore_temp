@@ -21,7 +21,7 @@ class BillAndCustomerWithBillItemAndItemListAdapter(private val actionBill: (Bil
     class BillAndCustomerWithBillItemAndItemViewHolder(private var binding: ItemListBillCustomerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(b: BillAndCustomerWithBillItemAndItem, actionBill: (Bill) -> Unit) {
-            binding.billCode.text = b.billAndCustomer.bill.billCode
+            binding.billCode.text = b.billAndCustomer.bill.id.toString()
             val date = b.billAndCustomer.bill.date
             binding.billDate.text = PersianDateConvertor().convertDateToPersianDate(date)
                 .toString() + " " + SimpleDateFormat("HH:mm:ss").format(date)
@@ -61,7 +61,7 @@ class BillAndCustomerWithBillItemAndItemListAdapter(private val actionBill: (Bil
     ): BillAndCustomerWithBillItemAndItemViewHolder {
         return BillAndCustomerWithBillItemAndItemViewHolder(
             ItemListBillCustomerBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context),parent,false
             )
         )
     }

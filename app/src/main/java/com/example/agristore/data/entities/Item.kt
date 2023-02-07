@@ -13,6 +13,8 @@ data class Item(
     val name: String,
     val price: Long,
     val quantity: Long,
+    val description:String,
+    val off:Long = 0
 )
 
 @Entity(tableName = "item_fts")
@@ -23,6 +25,8 @@ data class ItemFTS(
     val id: Int,
     @ColumnInfo(name = "name")
     val name: String,
+    @ColumnInfo(name = "description")
+    val description:String,
 )
 //@Entity
 //data class Item(
@@ -45,3 +49,6 @@ data class ItemFTS(
  */
 fun Item.getFormattedPrice(): String =
     NumberFormat.getCurrencyInstance().format(price)
+
+fun Item.getFormattedOff(): String =
+    NumberFormat.getCurrencyInstance().format(off)

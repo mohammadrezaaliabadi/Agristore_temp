@@ -13,22 +13,23 @@ import kotlinx.coroutines.launch
  */
 class ItemViewModel(private val itemDao: ItemDao) : ViewModel() {
     private val _changeResults = MutableLiveData<String>()
-    val changeResults : LiveData<String>
+    val changeResults: LiveData<String>
         get() = _changeResults
     private val _searchResults = MutableLiveData<List<Item>>()
     val searchResult: LiveData<List<Item>>
         get() = _searchResults
+
     // Cache all items form the database using LiveData.
     init {
         fetchAllItem()
         _changeResults.postValue("")
     }
 
-    fun changed(){
+    fun changed() {
         _changeResults.postValue("changed")
     }
 
-    fun setDefaultChange(){
+    fun setDefaultChange() {
         _changeResults.postValue("")
     }
 
@@ -44,8 +45,9 @@ class ItemViewModel(private val itemDao: ItemDao) : ViewModel() {
      * Inserts the new Item into database.
      */
 
-    fun addNewItem(itemName: String, itemQuantity: String, itemPrice: String) {
-        val newItem = getNewItemEntry(itemName, itemQuantity, itemPrice)
+    fun addNewItem(itemName: String, itemQuantity: String, itemPrice: String,        itemOff: String,
+                   itemDescription: String) {
+        val newItem = getNewItemEntry(itemName, itemQuantity, itemPrice,itemOff,itemDescription)
         insertItem(newItem)
     }
 
@@ -63,12 +65,13 @@ class ItemViewModel(private val itemDao: ItemDao) : ViewModel() {
         itemId: Int,
         itemName: String,
         itemPrice: String,
-        itemCount: String
+        itemCount: String,
+        itemOff: String,
+        itemDescription: String
     ) {
-        val updatedItem = getUpdatedItemEntry(itemId, itemName, itemPrice, itemCount)
+        val updatedItem = getUpdatedItemEntry(itemId, itemName, itemPrice, itemCount,itemOff,itemDescription)
         updateItem(updatedItem)
     }
-
 
 
     /**
@@ -85,11 +88,17 @@ class ItemViewModel(private val itemDao: ItemDao) : ViewModel() {
      * Returns an instance of the [Item] entity class with the item info entered by the user.
      * This will be used to add a new entry to the Inventory database.
      */
-    private fun getNewItemEntry(itemName: String, itemQuantity: String, itemPrice: String): Item {
+    private fun getNewItemEntry(
+        itemName: String, itemQuantity: String, itemPrice: String,
+        itemOff: String,
+        itemDescription: String
+    ): Item {
         return Item(
             name = itemName,
             quantity = itemQuantity.toLong(),
-            price = itemPrice.toLong()
+            price = itemPrice.toLong(),
+            off = itemOff.toLong(),
+            description = itemDescription
         )
     }
 
@@ -117,21 +126,25 @@ class ItemViewModel(private val itemDao: ItemDao) : ViewModel() {
         itemId: Int,
         itemName: String,
         itemQuantity: String,
-        itemPrice: String
+        itemPrice: String,
+        itemOff: String,
+        itemDescription: String,
     ): Item {
         return Item(
             id = itemId,
             name = itemName,
             quantity = itemQuantity.toLong(),
-            price = itemPrice.toLong()
+            price = itemPrice.toLong(),
+            off = itemOff.toLong(),
+            description = itemDescription
         )
     }
 
     /**
      * Returns true if the EditTexts are not empty
      */
-    fun isEntryValid(itemName: String, itemQuantity: String, itemPrice: String): Boolean {
-        if (itemName.isBlank() || itemQuantity.isBlank() || itemPrice.isBlank()) {
+    fun isEntryValid(itemName: String, itemQuantity: String, itemPrice: String,itemOff: String,itemDescription: String): Boolean {
+        if (itemName.isBlank() || itemQuantity.isBlank() || itemPrice.isBlank()||itemOff.isBlank() || itemDescription.isBlank()) {
             return false
         }
         return true
@@ -156,7 +169,7 @@ class ItemViewModel(private val itemDao: ItemDao) : ViewModel() {
         }
     }
 
-    fun findItemAndCustomerById(itemId:Int): LiveData<ItemWithBillItemAndBillAndCustomer> {
+    fun findItemAndCustomerById(itemId: Int): LiveData<ItemWithBillItemAndBillAndCustomer> {
         return itemDao.getItemWithCustomer(itemId).asLiveData()
     }
 

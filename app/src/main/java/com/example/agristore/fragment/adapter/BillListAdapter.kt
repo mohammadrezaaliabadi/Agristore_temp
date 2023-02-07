@@ -18,7 +18,7 @@ class BillListAdapter(private val actionBill: (Bill) -> Unit) :
     class BillViewHolder(private var binding: ItemListBillBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(billWithBillItemAndItem: BillWithBillItemAndItem, actionBill: (Bill) -> Unit) {
-            binding.billCode.text = billWithBillItemAndItem.bill.billCode
+            binding.billCode.text = billWithBillItemAndItem.bill.id.toString()
             val date = billWithBillItemAndItem.bill.date
             binding.billDate.text = PersianDateConvertor().convertDateToPersianDate(date)
                 .toString() + " " + SimpleDateFormat("HH:mm:ss").format(date)
@@ -52,7 +52,7 @@ class BillListAdapter(private val actionBill: (Bill) -> Unit) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillViewHolder {
-        return BillViewHolder(ItemListBillBinding.inflate(LayoutInflater.from(parent.context)))
+        return BillViewHolder(ItemListBillBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun onBindViewHolder(holder: BillViewHolder, position: Int) {

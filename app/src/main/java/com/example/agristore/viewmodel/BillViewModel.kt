@@ -14,6 +14,7 @@ import com.example.agristore.data.entities.relations.BillAndCustomerWithBillItem
 import com.example.agristore.data.entities.relations.BillWithBillItemAndItem
 import com.example.agristore.model.ItemCardModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class BillViewModel(
@@ -85,7 +86,7 @@ class BillViewModel(
                     _searchResults.postValue(it)
                 }
             } else {
-                billDao.search("%$query%").let {
+                billDao.searchById("%$query%").let {
                     _searchResults.postValue(it)
                 }
             }
@@ -102,7 +103,7 @@ class BillViewModel(
     }
 
     private lateinit var billCode: String
-    var billId: Int = 0
+    var billId: Long = 0
 
     fun addItemToBuy(item: Item, count: Long) {
         itemsBuy[item] = count
@@ -141,21 +142,21 @@ class BillViewModel(
         return customerDao.getCustomer(id).asLiveData()
     }
 
-    fun retrieveBill(id: Int): LiveData<Bill> {
+    fun retrieveBill(id: Long): LiveData<Bill> {
         return billDao.getBill(id).asLiveData()
     }
 
     fun addNewBill(customerId: Int, billPayment: String, billOff: String) {
         billCode = UUID.randomUUID().toString()
         val newBill = getNewBillEntry(billCode, customerId, billPayment.toLong(), billOff.toLong())
-        insertBill(newBill)
-        billId = retrieveBillByBillCode(billCode).id
+        runBlocking {
+            billId = insertBill(newBill)
+        }
+
     }
 
-    private fun insertBill(bill: Bill) {
-        viewModelScope.launch {
-            billDao.insert(bill)
-        }
+    suspend fun insertBill(bill: Bill):Long {
+            return billDao.insert(bill)
     }
 
     private fun getNewBillEntry(
@@ -178,7 +179,7 @@ class BillViewModel(
         return billDao.getBillByBillCode(billCode)
     }
 
-    fun getBillWithBillItemAndItems(billId: Int): LiveData<BillWithBillItemAndItem> {
+    fun getBillWithBillItemAndItems(billId: Long): LiveData<BillWithBillItemAndItem> {
         return billDao.getBillWithBillItemAndItems(billId).asLiveData()
     }
 
@@ -191,10 +192,12 @@ class BillViewModel(
                         billId = billId,
                         itemId = item.id,
                         quantity = count,
+                        off = item.off,
+                        price = item.price
                     )
                 )
                 val quantity = item.quantity - count
-                itemDao.update(Item(item.id,item.name,item.price,quantity))
+                itemDao.update(Item(item.id,item.name,item.price,quantity,item.description,item.off))
             }
             itemsBuy = mutableMapOf()
             newBill.postValue(true)

@@ -7,7 +7,9 @@ import androidx.room.PrimaryKey
 data class BillItem(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val billId: Int,
+    val billId: Long,
     val itemId: Int,
     val quantity: Long,
+    val price:Long,
+    val off:Long
 )

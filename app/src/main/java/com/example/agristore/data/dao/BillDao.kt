@@ -12,13 +12,13 @@ interface BillDao {
     fun getBills(): Flow<List<Bill>>
 
     @Query("select * from bill where id=:id")
-    fun getBill(id: Int): Flow<Bill>
+    fun getBill(id: Long): Flow<Bill>
 
     @Query("select * from bill where billCode=:billCode")
     fun getBillByBillCode(billCode: String): Bill
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(bill: Bill)
+    fun insert(bill: Bill):Long
 
     @Update
     suspend fun update(bill: Bill)
@@ -28,7 +28,7 @@ interface BillDao {
 
     @Transaction
     @Query("select * from bill where bill.id=:id")
-    fun getBillWithBillItemAndItems(id: Int): Flow<BillWithBillItemAndItem>
+    fun getBillWithBillItemAndItems(id: Long): Flow<BillWithBillItemAndItem>
 
 
     @Transaction
@@ -41,4 +41,7 @@ interface BillDao {
 
     @Query("select * from bill where billCode like :query order by date desc")
     suspend fun search(query: String): List<BillAndCustomerWithBillItemAndItem>
+
+    @Query("select * from bill where id like :query order by date desc")
+    suspend fun searchById(query: String): List<BillAndCustomerWithBillItemAndItem>
 }

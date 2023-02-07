@@ -29,6 +29,7 @@ import com.example.agristore.AgriStoreApplication
 import com.example.agristore.R
 import com.example.agristore.data.entities.Image
 import com.example.agristore.data.entities.Item
+import com.example.agristore.data.entities.getFormattedOff
 import com.example.agristore.data.entities.getFormattedPrice
 import com.example.agristore.data.entities.relations.BillItemWithBillAndCustomer
 import com.example.agristore.databinding.FragmentItemDetailBinding
@@ -72,9 +73,14 @@ class ItemDetailFragment : Fragment() {
 
     private fun bind(item: Item) {
         binding.apply {
-            itemName.text = item.name
-            itemPrice.text = item.getFormattedPrice()
-            itemCount.text = item.quantity.toString()
+            headerLayout.apply {
+                itemName.text = item.name
+                itemPrice.text = item.getFormattedPrice()
+                itemOff.text = item.getFormattedOff()
+                itemQuantity.text = item.quantity.toString()
+                itemDescription.text = item.description
+            }
+
             deleteItem.setOnClickListener { showConfirmationDialog() }
             editItem.setOnClickListener { editItem() }
         }
@@ -100,15 +106,15 @@ class ItemDetailFragment : Fragment() {
             .setMessage(getString(R.string.delete_question))
             .setCancelable(false)
             .setNegativeButton(getString(R.string.no)) { _, _ ->
-                run {
-                    imageViewModel.getImage(imageId).observe(viewLifecycleOwner) {
-                        binding.imageView.setImageBitmap(it.bitmap)
-                    }
-                }
+//                run {
+//                    imageViewModel.getImage(imageId).observe(viewLifecycleOwner) {
+//                        binding.imageView.setImageBitmap(it.bitmap)
+//                    }
+//                }
             }
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                openSomeActivityForResult()
-                //deleteItem()
+                //openSomeActivityForResult()
+                deleteItem()
             }
             .show()
     }

@@ -78,7 +78,9 @@ class AddItemFragment : Fragment() {
             viewModel.addNewItem(
                 binding.itemName.text.toString(),
                 binding.itemQuantity.text.toString(),
-                binding.itemPrice.text.toString()
+                binding.itemPrice.text.toString(),
+                binding.itemOff.text.toString(),
+                binding.itemDescription.text.toString()
             )
             val action = AddItemFragmentDirections.actionAddItemFragmentToHomeFragment()
             findNavController().navigate(action)
@@ -94,7 +96,10 @@ class AddItemFragment : Fragment() {
         binding.apply {
             itemName.setText(item.name, TextView.BufferType.SPANNABLE)
             itemPrice.setText(item.price.toString(), TextView.BufferType.SPANNABLE)
+            itemOff.setText(item.off.toString(), TextView.BufferType.SPANNABLE)
             itemQuantity.setText(item.quantity.toString(), TextView.BufferType.SPANNABLE)
+            itemDescription.setText(item.description, TextView.BufferType.SPANNABLE)
+
             saveAction.setOnClickListener { updateItem() }
         }
     }
@@ -108,7 +113,9 @@ class AddItemFragment : Fragment() {
                 this.navigationArgs.itemId,
                 this.binding.itemName.text.toString(),
                 this.binding.itemQuantity.text.toString(),
-                this.binding.itemPrice.text.toString()
+                this.binding.itemPrice.text.toString(),
+                this.binding.itemOff.text.toString(),
+                this.binding.itemDescription.text.toString()
             )
             val action = AddItemFragmentDirections.actionAddItemFragmentToHomeFragment()
             findNavController().navigate(action)
@@ -124,6 +131,8 @@ class AddItemFragment : Fragment() {
             binding.itemName.text.toString(),
             binding.itemPrice.text.toString(),
             binding.itemQuantity.text.toString(),
+            binding.itemOff.text.toString(),
+            binding.itemDescription.text.toString()
         )
     }
 
