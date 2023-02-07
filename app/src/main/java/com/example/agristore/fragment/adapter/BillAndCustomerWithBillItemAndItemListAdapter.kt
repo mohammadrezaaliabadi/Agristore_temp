@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Bill
+import com.example.agristore.data.entities.getFormattedCurrency
 import com.example.agristore.data.entities.relations.BillAndCustomerWithBillItemAndItem
 import com.example.agristore.data.entities.relations.BillWithBillItemAndItem
 import com.example.agristore.databinding.ItemListBillBinding
@@ -25,11 +26,13 @@ class BillAndCustomerWithBillItemAndItemListAdapter(private val actionBill: (Bil
             val date = b.billAndCustomer.bill.date
             binding.billDate.text = PersianDateConvertor().convertDateToPersianDate(date)
                 .toString() + " " + SimpleDateFormat("HH:mm:ss").format(date)
-            binding.billOff.text = b.billAndCustomer.bill.off.toString()
-            binding.billPayment.text = b.billAndCustomer.bill.payment.toString()
-            val total = b.billItemWithItems.map { it.billItem.quantity * it.item.price }.sum()
+            binding.billOff.text = b.billAndCustomer.bill.off.getFormattedCurrency()
+            binding.billPayment.text = b.billAndCustomer.bill.payment.getFormattedCurrency()
+            val total =
+                b.billItemWithItems.map { it.billItem.quantity * (it.billItem.price - it.billItem.off) }
+                    .sum()
             binding.billTotalPrice.text =
-                (total - b.billAndCustomer.bill.off - b.billAndCustomer.bill.payment).toString()
+                (total - b.billAndCustomer.bill.off - b.billAndCustomer.bill.payment).getFormattedCurrency()
             binding.itemDetailsAction.setOnClickListener {
                 actionBill(b.billAndCustomer.bill)
             }
@@ -61,7 +64,7 @@ class BillAndCustomerWithBillItemAndItemListAdapter(private val actionBill: (Bil
     ): BillAndCustomerWithBillItemAndItemViewHolder {
         return BillAndCustomerWithBillItemAndItemViewHolder(
             ItemListBillCustomerBinding.inflate(
-                LayoutInflater.from(parent.context),parent,false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }

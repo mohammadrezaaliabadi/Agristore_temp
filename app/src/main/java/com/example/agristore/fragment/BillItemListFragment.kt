@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.agristore.AgriStoreApplication
 import com.example.agristore.R
+import com.example.agristore.data.entities.getFormattedCurrency
 import com.example.agristore.databinding.FragmentBillItemListBinding
 import com.example.agristore.fragment.adapter.BillItemWithItemListAdapter
 import com.example.agristore.model.BillSendModel
@@ -110,15 +111,17 @@ class BillItemListFragment : Fragment() {
 
                     adapter.submitList(it.billItemWithItems)
                     val billTotalItemPrice =
-                        it.billItemWithItems.map { it.billItem.quantity * it.item.price }.sum()
+                        it.billItemWithItems.map { it.billItem.quantity * (it.billItem.price - it.billItem.off
+
+                                ) }.sum()
                     val billSendModel = BillSendModel(
                         billCode = it.bill.billCode,
                         billDate = PersianDateConvertor().convertDateToPersianDate(it.bill.date)
                             .toString() + " " + SimpleDateFormat("HH:mm:ss").format(it.bill.date),
-                        billOff = it.bill.off.toString(),
-                        billPayment = it.bill.payment.toString(),
-                        billTotalItemPrice = billTotalItemPrice.toString(),
-                        billTotal = (billTotalItemPrice - it.bill.off - it.bill.payment).toString()
+                        billOff = it.bill.off.getFormattedCurrency(),
+                        billPayment = it.bill.payment.getFormattedCurrency(),
+                        billTotalItemPrice = billTotalItemPrice.getFormattedCurrency(),
+                        billTotal = (billTotalItemPrice - it.bill.off - it.bill.payment).getFormattedCurrency()
                     )
                     binding.headerLayout.billCode.text = billSendModel.billCode
                     binding.headerLayout.billDate.text = billSendModel.billDate

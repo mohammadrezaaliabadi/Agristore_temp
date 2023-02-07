@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Item
+import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getFormattedOff
+import com.example.agristore.data.entities.getFormattedPrice
 import com.example.agristore.data.entities.relations.BillItemWithItem
 import com.example.agristore.databinding.ItemListBillItemBinding
 
@@ -19,9 +22,10 @@ class BillItemWithItemListAdapter(private val onItemClicked: (Item) -> Unit) :
         fun bind(billItemWithItem: BillItemWithItem) {
             binding.itemName.text = billItemWithItem.item.name
             binding.itemQuantity.text = billItemWithItem.billItem.quantity.toString()
-            binding.itemPrice.text = billItemWithItem.item.price.toString()
+            binding.itemPrice.text = billItemWithItem.billItem.getFormattedPrice()
+            binding.itemOff.text = billItemWithItem.billItem.getFormattedOff()
             binding.itemTotalPrice.text =
-                (billItemWithItem.item.price * billItemWithItem.billItem.quantity).toString()
+                ((billItemWithItem.billItem.price -billItemWithItem.billItem.off ) * billItemWithItem.billItem.quantity).getFormattedCurrency()
 
         }
     }

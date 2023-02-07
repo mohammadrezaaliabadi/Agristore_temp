@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Item
+import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getFormattedOff
 import com.example.agristore.data.entities.getFormattedPrice
 import com.example.agristore.databinding.ItemListItemBuyBinding
 
@@ -21,7 +23,9 @@ class ItemBuyListAdapter(private val onItemClicked: (Item, Long) -> Unit) :
         fun bind(item: Item, addAction: (Item, Long) -> Unit) {
             binding.itemName.text = item.name
             binding.itemPrice.text = item.getFormattedPrice()
+            binding.itemOff.text = item.getFormattedOff()
             binding.itemQuantity.text = item.quantity.toString()
+            binding.itemPriceAndOff.text = (item.price - item.off).getFormattedCurrency()
             binding.itemCount.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable) {

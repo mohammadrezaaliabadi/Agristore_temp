@@ -95,10 +95,10 @@
     <TextView
         android:id="@+id/item_name"
         style="@style/Widget.My.Header"
-        android:layout_marginStart="@dimen/margin_between_elements"
+        android:layout_marginStart="@dimen/margin_between_elements3"
         android:text="@string/item"
         app:layout_constraintEnd_toStartOf="@+id/item_quantity_label"
-        app:layout_constraintHorizontal_weight="1.5"
+        app:layout_constraintHorizontal_weight="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_layout" />
 
@@ -107,11 +107,11 @@
         android:id="@+id/item_quantity_label"
         style="@style/Widget.My.Header"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginEnd="@dimen/margin_between_elements3"
         android:text="@string/item_quantity_header"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/item_price"
-        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintHorizontal_weight="0.6"
         app:layout_constraintStart_toEndOf="@+id/item_name"
         app:layout_constraintTop_toBottomOf="@id/header_layout"  />
 
@@ -119,12 +119,23 @@
         android:id="@+id/item_price"
         style="@style/Widget.My.Header"
         android:layout_below="@+id/item_name"
-        android:layout_marginStart="@dimen/margin_between_elements"
+        android:layout_marginStart="@dimen/margin_between_elements3"
         android:text="@string/price"
         android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/item_total_price"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintEnd_toStartOf="@+id/item_off"
+        app:layout_constraintHorizontal_weight="0.6"
         app:layout_constraintStart_toEndOf="@+id/item_quantity_label"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"  />
+    <TextView
+        android:id="@+id/item_off"
+        style="@style/Widget.My.Header"
+        android:layout_below="@+id/item_name"
+        android:layout_marginStart="@dimen/margin_between_elements3"
+        android:text="@string/item_off"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/item_total_price"
+        app:layout_constraintHorizontal_weight="0.6"
+        app:layout_constraintStart_toEndOf="@+id/item_price"
         app:layout_constraintTop_toBottomOf="@id/header_layout"  />
 
     <TextView
@@ -135,8 +146,8 @@
         android:text="@string/item_total_price_label"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/item_price"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintStart_toEndOf="@+id/item_off"
         app:layout_constraintTop_toBottomOf="@id/header_layout"  />
 
     <View
@@ -156,7 +167,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        android:layout_margin="@dimen/margin_between_elements"
+        android:layout_margin="@dimen/margin_between_elements3"
         tools:listitem="@layout/item_list_bill_item" />
 
 

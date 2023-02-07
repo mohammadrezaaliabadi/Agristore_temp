@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Item
 import com.example.agristore.data.entities.getFormattedOff
 import com.example.agristore.data.entities.getFormattedPrice
+import com.example.agristore.data.entities.getLocationFormat
 import com.example.agristore.databinding.CardItemBinding
 
 class ItemListAdapter(private val onItemClicked: (Item) -> Unit):ListAdapter<Item, ItemListAdapter.ItemViewHolder>(
@@ -17,7 +18,7 @@ class ItemListAdapter(private val onItemClicked: (Item) -> Unit):ListAdapter<Ite
         fun bind(item: Item,onItemClicked: (Item) -> Unit) {
             binding.itemName.text = item.name
             binding.itemPrice.text = item.getFormattedPrice()
-            binding.itemQuantity.text = item.quantity.toString()
+            binding.itemQuantity.text = item.getLocationFormat()
             binding.itemOff.text = item.getFormattedOff()
             binding.itemDescription.text = item.description
             binding.buttonItemAction.setOnClickListener {

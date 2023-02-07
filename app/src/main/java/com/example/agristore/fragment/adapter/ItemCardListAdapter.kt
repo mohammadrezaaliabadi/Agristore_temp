@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getFormattedOff
 import com.example.agristore.data.entities.getFormattedPrice
 import com.example.agristore.databinding.ItemListBillItemBinding
 import com.example.agristore.model.ItemCardModel
@@ -21,8 +23,9 @@ class ItemCardListAdapter(private val onItemClicked: (ItemCardModel, View) -> Un
             binding.itemName.text = itemCardModel.item.name
             binding.itemPrice.text = itemCardModel.item.getFormattedPrice()
             binding.itemQuantity.text = itemCardModel.quantity.toString()
+            binding.itemOff.text = itemCardModel.item.getFormattedOff()
             binding.itemTotalPrice.text =
-                (itemCardModel.item.price * itemCardModel.quantity).toString()
+                ((itemCardModel.item.price-itemCardModel.item.off) * itemCardModel.quantity).getFormattedCurrency()
             binding.root.setOnClickListener {
                 addAction(itemCardModel, binding.root)
             }
