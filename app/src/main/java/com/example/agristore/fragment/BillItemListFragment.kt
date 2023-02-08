@@ -1,11 +1,13 @@
 package com.example.agristore.fragment
 
 
-import android.content.res.Configuration
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -131,6 +133,9 @@ class BillItemListFragment : Fragment() {
                     binding.headerLayout.billOff.text = billSendModel.billOff
                     binding.headerLayout.billPayment.text = billSendModel.billPayment
                     binding.headerLayout.billPrice.text = billSendModel.billTotal
+                    billSendModel.billDate =
+                        PersianDateConvertor().convertDateToPersianDate(it.bill.date)
+                            .toString()
                     bindingCustomer(it.bill.customerId, billSendModel)
                 }
             }
@@ -145,8 +150,8 @@ class BillItemListFragment : Fragment() {
                     runBlocking {
                         viewModel.newBill.postValue(false)
                         billSendModel.customerTel = it.tel
+                        //sendSMS(it.tel, billSendModel)
                     }
-                    sendSMS(it.tel, billSendModel)
                 }
                 binding.headerLayout.customerName.text = it.firstName + " " + it.lastName
                 binding.headerLayout.customerNationalNumber.text = it.nationalNumber.toString()
@@ -182,16 +187,28 @@ class BillItemListFragment : Fragment() {
         billSendModel: BillSendModel
     ) {
         var smsManager = SmsManager.getDefault()
+//        val text = "${getString(R.string.home_name)}\n" +
+//                "${getString(R.string.bill_code_label)}${billSendModel.billCode}\n" +
+//                "${getString(R.string.bill_date_label)}${billSendModel.billDate}\n" +
+//                "${getString(R.string.bill_off_label)}${billSendModel.billOff}\n" +
+//                "${getString(R.string.bill_payment_label)}${billSendModel.billPayment}\n" +
+//                "${getString(R.string.bill_total_item_price)}${billSendModel.billTotalItemPrice}\n" +
+//                "${getString(R.string.bill_total_price)}${billSendModel.billTotal}"
 
+        val text =
+            "${getString(R.string.home_name)}\n" + "${getString(R.string.bill_code_label)}${billSendModel.billCode}\n" + "${
+                getString(
+                    R.string.bill_date_label
+                )
+            }${billSendModel.billDate}\n"
         smsManager.sendTextMessage(
             tel,
-            null,
-            "AgriStore\nBill Code:${billSendModel.billCode}\nDate:${
-                billSendModel.billDate
-            }\nBill Off:${billSendModel.billOff}\nBill Payment:${billSendModel.billPayment}\nBill Item price:${billSendModel.billTotalItemPrice}\nTotal:${billSendModel.billTotal}",
+            null, text,
             null,
             null
         )
+
+
     }
 
     override fun onResume() {

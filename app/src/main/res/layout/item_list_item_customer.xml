@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <TextView
@@ -20,7 +20,7 @@
     <TextView
         android:id="@+id/bill_code"
         style="@style/Widget.My.ListItemCustomerTextView"
-        android:layout_width="115dp"
+        android:layout_width="105dp"
         android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/bill_item_quantity"
@@ -31,7 +31,7 @@
     <TextView
         android:id="@+id/bill_item_quantity"
         style="@style/Widget.My.ListItemCustomerTextView"
-        android:layout_width="95dp"
+        android:layout_width="75dp"
         android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"

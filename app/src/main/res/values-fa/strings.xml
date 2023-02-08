@@ -58,7 +58,7 @@
     <string name="bill_price">456687ریال</string>
     <string name="bill_date">1402/12/4</string>
     <string name="bill_date_label">تاریخ:</string>
-    <string name="card">سبد:</string>
+    <string name="card">سبد</string>
     <string name="total_price_label">جمع:</string>
     <string name="bill_payment_req">پرداخت:</string>
     <string name="bill_off_req">تخفیف</string>
@@ -104,4 +104,5 @@
     <string name="fragment_bill_item_list">فاکتور</string>
     <string name="fragment_add_bill_home">خرید</string>
     <string name="fragment_add_bill_card">کارت</string>
+    <string name="bill_total_item_price">جمع کالا:</string>
 </resources>

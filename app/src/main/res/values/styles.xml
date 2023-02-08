@@ -19,6 +19,11 @@
         <item name="iconPadding">0dp</item>
         <item name="iconGravity">textStart</item>
     </style>
+    <style name="Widget.My.BillHeader.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/teal_700</item>
+        <item name="android:textSize">26dp</item>
+    </style>
     <style name="Widget.My.ListItemCustomerTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:gravity">center_vertical</item>
         <item name="android:layout_height">48dp</item>

@@ -23,6 +23,8 @@ class BillAndCustomerWithBillItemAndItemListAdapter(private val actionBill: (Bil
     class BillAndCustomerWithBillItemAndItemViewHolder(private var binding: ItemListBillCustomerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(b: BillAndCustomerWithBillItemAndItem, actionBill: (Bill) -> Unit) {
+            binding.customerName.text = "${b.billAndCustomer.customer.firstName} ${b.billAndCustomer.customer.lastName}"
+            binding.customerNationalNumber.text = b.billAndCustomer.customer.nationalNumber.getLocationFormat()
             binding.billCode.text = b.billAndCustomer.bill.id.getLocationFormat()
             val date = b.billAndCustomer.bill.date
             binding.billDate.text = PersianDateConvertor().convertDateToPersianDate(date)

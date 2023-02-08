@@ -104,4 +104,5 @@
     <string name="fragment_bill_item_list">Bill</string>
     <string name="fragment_add_bill_home">Buy</string>
     <string name="fragment_add_bill_card">Card</string>
+    <string name="bill_total_item_price">Total Item:</string>
 </resources>

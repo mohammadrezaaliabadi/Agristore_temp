@@ -10,192 +10,206 @@
     app:cardElevation="4dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
-
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_between_elements"
-            android:orientation="vertical">
+            android:text="@string/home_name"
+            style="@style/Widget.My.BillHeader.TextView"
+            android:textColor="@color/teal_700"
+            android:layout_margin="@dimen/margin_between_elements"/>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_customer_name" />
-
-                <TextView
-                    android:id="@+id/customer_name"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_customer_name_sample"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_customer_national_number_label" />
-
-                <TextView
-                    android:id="@+id/customer_national_Number"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_customer_national_number"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_customer_tel_label" />
-
-                <TextView
-                    android:id="@+id/customer_tel"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_customer_tel"/>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_between_elements"
-            android:orientation="vertical">
-
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_between_elements"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_code_label" />
 
-                <TextView
-                    android:id="@+id/bill_code"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_code"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_customer_name" />
+
+                    <TextView
+                        android:id="@+id/customer_name"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_customer_name_sample"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_customer_national_number_label" />
+
+                    <TextView
+                        android:id="@+id/customer_national_Number"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_customer_national_number"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_customer_tel_label" />
+
+                    <TextView
+                        android:id="@+id/customer_tel"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_customer_tel"/>
+
+                </LinearLayout>
+
 
             </LinearLayout>
-
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_between_elements"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_date_label" />
 
-                <TextView
-                    android:id="@+id/bill_date"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_date"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_code_label" />
+
+                    <TextView
+                        android:id="@+id/bill_code"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_code"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_date_label" />
+
+                    <TextView
+                        android:id="@+id/bill_date"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_date"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_off_label" />
+
+                    <TextView
+                        android:id="@+id/bill_off"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_price"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_payment_label" />
+
+                    <TextView
+                        android:id="@+id/bill_payment"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_price"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_between_elements2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/Widget.Bill.Label.TextView"
+                        android:text="@string/bill_total_price" />
+
+                    <TextView
+                        android:id="@+id/bill_price"
+                        style="@style/Widget.Bill.Data.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_elements2"
+                        android:text="@string/bill_price"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_off_label" />
-
-                <TextView
-                    android:id="@+id/bill_off"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_price"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_payment_label" />
-
-                <TextView
-                    android:id="@+id/bill_payment"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_price"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_between_elements2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    style="@style/Widget.Bill.Label.TextView"
-                    android:text="@string/bill_total_price" />
-
-                <TextView
-                    android:id="@+id/bill_price"
-                    style="@style/Widget.Bill.Data.TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="@dimen/margin_between_elements2"
-                    android:text="@string/bill_price"/>
-
-            </LinearLayout>
-
 
         </LinearLayout>
-
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_marginHorizontal="@dimen/margin_between_elements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>

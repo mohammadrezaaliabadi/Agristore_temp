@@ -56,5 +56,4 @@
         tools:listitem="@layout/item_list_item_buy" />
 
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

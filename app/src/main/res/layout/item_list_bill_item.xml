@@ -26,8 +26,8 @@
     <TextView
         android:id="@+id/item_name"
         style="@style/Widget.My.ListBillItemTextView"
-        android:layout_width="90dp"
-        android:layout_marginStart="@dimen/margin_between_elements3"
+        android:layout_width="85dp"
+        android:layout_marginStart="@dimen/margin_between_elements2"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toStartOf="@+id/item_quantity"
         app:layout_constraintStart_toStartOf="parent"
