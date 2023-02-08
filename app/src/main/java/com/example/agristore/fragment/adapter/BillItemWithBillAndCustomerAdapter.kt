@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.agristore.data.entities.getLocationFormat
 import com.example.agristore.data.entities.relations.BillItemWithBillAndCustomer
 import com.example.agristore.databinding.ItemListItemCustomerBinding
 
@@ -41,9 +42,9 @@ class BillItemWithBillAndCustomerAdapter(private val onItemClicked: (BillItemWit
             val customer = i.billAndCustomer.customer
             val bill = i.billAndCustomer.bill
             binding.customerName.text = "${customer.firstName} ${customer.lastName}"
-            binding.billCode.text = bill.billCode
+            binding.billCode.text = bill.id.getLocationFormat()
             binding.billItemQuantity.text =
-                i.billItem.quantity.toString()
+                i.billItem.quantity.getLocationFormat()
             binding.billItemCustomerMenu.setOnClickListener {
                 addAction(i, it)
             }
@@ -56,7 +57,7 @@ class BillItemWithBillAndCustomerAdapter(private val onItemClicked: (BillItemWit
     ): BillItemWithBillAndCustomerViewHolder {
         return BillItemWithBillAndCustomerViewHolder(
             ItemListItemCustomerBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context),parent,false
             )
         )
     }

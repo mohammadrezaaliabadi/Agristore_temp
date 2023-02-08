@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.agristore.AgriStoreApplication
 import com.example.agristore.R
 import com.example.agristore.data.entities.Customer
+import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getLocationFormat
 import com.example.agristore.data.entities.relations.BillWithBillItemAndItem
 import com.example.agristore.databinding.FragmentCustomerDetailBinding
 import com.example.agristore.fragment.adapter.BillListAdapter
@@ -53,11 +55,11 @@ class CustomerDetailFragment:Fragment (){
         binding.headerLayout.apply {
             val offs = billWithBillItemAndItems.sumOf { it.bill.off }
             val payments = billWithBillItemAndItems.sumOf { it.bill.payment }
-            val total = billWithBillItemAndItems.sumOf { it.billItemWithItems.sumOf { it.item.price*it.billItem.quantity } }
+            val total = billWithBillItemAndItems.sumOf { it.billItemWithItems.sumOf { (it.billItem.price - it.billItem.off)*it.billItem.quantity } }
             val tempTotal = total -offs - payments
-            billOff.text = offs.toString()
-            billPayment.text = payments.toString()
-            billTotalPrice.text = tempTotal.toString()
+            billOff.text = offs.getFormattedCurrency()
+            billPayment.text = payments.getFormattedCurrency()
+            billTotalPrice.text = tempTotal.getFormattedCurrency()
         }
 
     }

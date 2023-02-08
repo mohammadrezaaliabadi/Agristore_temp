@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Bill
 import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getLocationFormat
 import com.example.agristore.data.entities.relations.BillAndCustomerWithBillItemAndItem
 import com.example.agristore.data.entities.relations.BillWithBillItemAndItem
 import com.example.agristore.databinding.ItemListBillBinding
@@ -22,7 +23,7 @@ class BillAndCustomerWithBillItemAndItemListAdapter(private val actionBill: (Bil
     class BillAndCustomerWithBillItemAndItemViewHolder(private var binding: ItemListBillCustomerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(b: BillAndCustomerWithBillItemAndItem, actionBill: (Bill) -> Unit) {
-            binding.billCode.text = b.billAndCustomer.bill.id.toString()
+            binding.billCode.text = b.billAndCustomer.bill.id.getLocationFormat()
             val date = b.billAndCustomer.bill.date
             binding.billDate.text = PersianDateConvertor().convertDateToPersianDate(date)
                 .toString() + " " + SimpleDateFormat("HH:mm:ss").format(date)

@@ -88,6 +88,7 @@ class AddBillCardFragment(private val customerId: Int) : Fragment() {
                         )
                         viewModel.submitBill()
                         viewModel.changed()
+                        viewModel.newBill.postValue(true)
                         viewModel.resetCardItems()
 
                         val action =

@@ -1,6 +1,7 @@
 package com.example.agristore.fragment
 
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.util.Log
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.agristore.AgriStoreApplication
 import com.example.agristore.R
 import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getLocationFormat
 import com.example.agristore.databinding.FragmentBillItemListBinding
 import com.example.agristore.fragment.adapter.BillItemWithItemListAdapter
 import com.example.agristore.model.BillSendModel
@@ -26,6 +28,7 @@ import com.gkemon.XMLtoPDF.PdfGenerator.XmlToPDFLifecycleObserver
 import com.gkemon.XMLtoPDF.PdfGeneratorListener
 import com.gkemon.XMLtoPDF.model.FailureResponse
 import com.gkemon.XMLtoPDF.model.SuccessResponse
+import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 
 
@@ -111,11 +114,11 @@ class BillItemListFragment : Fragment() {
 
                     adapter.submitList(it.billItemWithItems)
                     val billTotalItemPrice =
-                        it.billItemWithItems.map { it.billItem.quantity * (it.billItem.price - it.billItem.off
-
-                                ) }.sum()
+                        it.billItemWithItems.map {
+                            it.billItem.quantity * (it.billItem.price - it.billItem.off)
+                        }.sum()
                     val billSendModel = BillSendModel(
-                        billCode = it.bill.billCode,
+                        billCode = it.bill.id.getLocationFormat(),
                         billDate = PersianDateConvertor().convertDateToPersianDate(it.bill.date)
                             .toString() + " " + SimpleDateFormat("HH:mm:ss").format(it.bill.date),
                         billOff = it.bill.off.getFormattedCurrency(),
@@ -139,8 +142,10 @@ class BillItemListFragment : Fragment() {
             it.let {
 
                 if (viewModel.newBill.value == true) {
-                    viewModel.newBill.postValue(false)
-                    billSendModel.customerTel = it.tel
+                    runBlocking {
+                        viewModel.newBill.postValue(false)
+                        billSendModel.customerTel = it.tel
+                    }
                     sendSMS(it.tel, billSendModel)
                 }
                 binding.headerLayout.customerName.text = it.firstName + " " + it.lastName
@@ -176,7 +181,8 @@ class BillItemListFragment : Fragment() {
         tel: String,
         billSendModel: BillSendModel
     ) {
-        var smsManager = SmsManager.getDefault();
+        var smsManager = SmsManager.getDefault()
+
         smsManager.sendTextMessage(
             tel,
             null,

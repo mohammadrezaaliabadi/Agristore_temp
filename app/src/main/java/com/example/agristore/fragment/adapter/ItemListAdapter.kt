@@ -18,7 +18,7 @@ class ItemListAdapter(private val onItemClicked: (Item) -> Unit):ListAdapter<Ite
         fun bind(item: Item,onItemClicked: (Item) -> Unit) {
             binding.itemName.text = item.name
             binding.itemPrice.text = item.getFormattedPrice()
-            binding.itemQuantity.text = item.getLocationFormat()
+            binding.itemQuantity.text = item.quantity.getLocationFormat()
             binding.itemOff.text = item.getFormattedOff()
             binding.itemDescription.text = item.description
             binding.buttonItemAction.setOnClickListener {

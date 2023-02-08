@@ -27,10 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.util.UUIDUtil
 import com.example.agristore.AgriStoreApplication
 import com.example.agristore.R
-import com.example.agristore.data.entities.Image
-import com.example.agristore.data.entities.Item
-import com.example.agristore.data.entities.getFormattedOff
-import com.example.agristore.data.entities.getFormattedPrice
+import com.example.agristore.data.entities.*
 import com.example.agristore.data.entities.relations.BillItemWithBillAndCustomer
 import com.example.agristore.databinding.FragmentItemDetailBinding
 import com.example.agristore.fragment.adapter.BillItemWithBillAndCustomerAdapter
@@ -77,7 +74,7 @@ class ItemDetailFragment : Fragment() {
                 itemName.text = item.name
                 itemPrice.text = item.getFormattedPrice()
                 itemOff.text = item.getFormattedOff()
-                itemQuantity.text = item.quantity.toString()
+                itemQuantity.text = item.quantity.getLocationFormat()
                 itemDescription.text = item.description
             }
 

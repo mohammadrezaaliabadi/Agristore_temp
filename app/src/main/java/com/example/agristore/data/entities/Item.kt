@@ -52,5 +52,5 @@ fun Item.getFormattedPrice(): String =
 
 fun Item.getFormattedOff(): String =
     NumberFormat.getCurrencyInstance().format(off)
-fun Item.getLocationFormat(): String =
-    NumberFormat.getInstance().format(quantity)
+fun Long.getLocationFormat(): String =
+    NumberFormat.getInstance().format(this)

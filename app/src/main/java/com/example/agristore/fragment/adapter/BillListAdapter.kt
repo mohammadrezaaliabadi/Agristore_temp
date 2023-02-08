@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agristore.data.entities.Bill
+import com.example.agristore.data.entities.getFormattedCurrency
+import com.example.agristore.data.entities.getLocationFormat
 import com.example.agristore.data.entities.relations.BillWithBillItemAndItem
 import com.example.agristore.databinding.ItemListBillBinding
 import com.example.agristore.utillity.PersianDateConvertor
@@ -22,10 +24,10 @@ class BillListAdapter(private val actionBill: (Bill) -> Unit) :
             val date = billWithBillItemAndItem.bill.date
             binding.billDate.text = PersianDateConvertor().convertDateToPersianDate(date)
                 .toString() + " " + SimpleDateFormat("HH:mm:ss").format(date)
-            binding.billOff.text = billWithBillItemAndItem.bill.off.toString()
-            binding.billPayment.text = billWithBillItemAndItem.bill.payment.toString()
-            val total = billWithBillItemAndItem.billItemWithItems.map { it.billItem.quantity * it.item.price }.sum()
-            binding.billTotalPrice.text = (total - billWithBillItemAndItem.bill.off - billWithBillItemAndItem.bill.payment).toString()
+            binding.billOff.text = billWithBillItemAndItem.bill.off.getFormattedCurrency()
+            binding.billPayment.text = billWithBillItemAndItem.bill.payment.getLocationFormat()
+            val total = billWithBillItemAndItem.billItemWithItems.map { it.billItem.quantity * (it.billItem.price-it.billItem.off) }.sum()
+            binding.billTotalPrice.text = (total - billWithBillItemAndItem.bill.off - billWithBillItemAndItem.bill.payment).getFormattedCurrency()
             binding.itemDetailsAction.setOnClickListener {
                 actionBill(billWithBillItemAndItem.bill)
             }

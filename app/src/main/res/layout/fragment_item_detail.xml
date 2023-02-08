@@ -79,7 +79,6 @@
             android:text="@string/item_customer_name"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/bill_code"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,9 +90,8 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/item_bill_code"
             android:textAlignment="center"
-            app:layout_constraintBaseline_toBaselineOf="@+id/customer_name"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bill_item_quantity"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/customer_name" />
 
         <TextView
@@ -101,12 +99,11 @@
             style="@style/Widget.My.ListItemCustomerHeader"
             android:layout_width="100dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/margin_between_elements"
             android:fontFamily="sans-serif-medium"
             android:text="@string/item_quantity_header"
             android:textAlignment="center"
-            app:layout_constraintBaseline_toBaselineOf="@+id/bill_code"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/action_bill_item_customer"
             app:layout_constraintStart_toEndOf="@+id/bill_code" />
 
         <TextView
@@ -117,9 +114,9 @@
             android:layout_marginEnd="@dimen/margin_between_elements"
             android:fontFamily="sans-serif-medium"
             android:textAlignment="center"
-            app:layout_constraintBaseline_toBaselineOf="@+id/bill_item_quantity"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bill_item_quantity" />
+            app:layout_constraintStart_toEndOf="@+id/bill_code" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -94,4 +94,14 @@
     <string name="item_price_and_off">Price</string>
     <string name="details_action">Details</string>
     <string name="item_description">This is description.</string>
+    <string name="list_item">List item</string>
+    <string name="home_name">Sabz Dasht</string>
+    <string name="fragment_bill_list">Bills</string>
+    <string name="fragment_customer_list">Customers</string>
+    <string name="fragment_add_customer">Customer</string>
+    <string name="fragment_customer_detail">Customer Details</string>
+    <string name="fragment_add_bill">Bill</string>
+    <string name="fragment_bill_item_list">Bill</string>
+    <string name="fragment_add_bill_home">Buy</string>
+    <string name="fragment_add_bill_card">Card</string>
 </resources>

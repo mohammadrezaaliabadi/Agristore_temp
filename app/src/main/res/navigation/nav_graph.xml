@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/itemListFragment"
         android:name="com.example.agristore.fragment.ItemListFragment"
-        android:label="fragment_item_list"
+        android:label="@string/list_item"
         tools:layout="@layout/fragment_item_list" />
     <fragment
         android:id="@+id/addItemFragment"
         android:name="com.example.agristore.fragment.AddItemFragment"
-        android:label="AddItemFragment">
+        android:label="@string/item">
         <argument
             android:name="title"
             app:argType="string" />
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/itemDetailFragment"
         android:name="com.example.agristore.fragment.ItemDetailFragment"
-        android:label="fragment_item_detail"
+        android:label="@string/item_detail_fragment_title"
         tools:layout="@layout/fragment_item_detail">
         <argument
             android:name="item_id"
@@ -46,7 +46,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.agristore.fragment.HomeFragment"
-        android:label="HomeFragment">
+        android:label="@string/home_name">
         <action
             android:id="@+id/action_homeFragment_to_billListFragment"
             app:destination="@id/billListFragment" />
@@ -78,17 +78,17 @@
     <fragment
         android:id="@+id/billListFragment"
         android:name="com.example.agristore.fragment.BillListFragment"
-        android:label="fragment_bill_list"
+        android:label="@string/fragment_bill_list"
         tools:layout="@layout/fragment_bill_list" />
     <fragment
         android:id="@+id/customerListFragment"
         android:name="com.example.agristore.fragment.CustomerListFragment"
-        android:label="fragment_customer_list"
+        android:label="@string/fragment_customer_list"
         tools:layout="@layout/fragment_customer_list" />
     <fragment
         android:id="@+id/addCustomerFragment"
         android:name="com.example.agristore.fragment.AddCustomerFragment"
-        android:label="fragment_add_customer"
+        android:label="@string/fragment_add_customer"
         tools:layout="@layout/fragment_add_customer">
         <argument
             android:name="title"
@@ -104,7 +104,7 @@
     <fragment
         android:id="@+id/customerDetailFragment"
         android:name="com.example.agristore.fragment.CustomerDetailFragment"
-        android:label="fragment_customer_detail"
+        android:label="@string/fragment_customer_detail"
         tools:layout="@layout/fragment_customer_detail">
         <argument
             android:name="customer_id"
@@ -125,7 +125,7 @@
     <fragment
         android:id="@+id/addBillFragment"
         android:name="com.example.agristore.fragment.AddBillFragment"
-        android:label="fragment_add_bill"
+        android:label="@string/fragment_add_bill"
         tools:layout="@layout/fragment_add_bill">
         <argument
             android:name="customer_id"
@@ -134,7 +134,7 @@
     <fragment
         android:id="@+id/billItemListFragment"
         android:name="com.example.agristore.fragment.BillItemListFragment"
-        android:label="fragment_bill_item_list"
+        android:label="@string/fragment_bill_item_list"
         tools:layout="@layout/fragment_bill_item_list">
         <argument
             android:name="billId"
@@ -146,7 +146,7 @@
     <fragment
         android:id="@+id/addBillHomeFragment"
         android:name="com.example.agristore.fragment.AddBillHomeFragment"
-        android:label="fragment_add_bill_home"
+        android:label="@string/fragment_add_bill_home"
         tools:layout="@layout/fragment_add_bill_home" >
         <argument
             android:name="customer_id"
@@ -169,6 +169,6 @@
     <fragment
         android:id="@+id/addBillCardFragment"
         android:name="com.example.agristore.fragment.AddBillCardFragment"
-        android:label="fragment_add_bill_card"
+        android:label="@string/fragment_add_bill_card"
         tools:layout="@layout/fragment_add_bill_card" />
 </navigation>

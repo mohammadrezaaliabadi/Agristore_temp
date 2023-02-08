@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">فروشگاه</string>
+    <string name="sell">خرید</string>
+    <string name="quantity">تعداد:</string>
+    <string name="quantity_req">تعدداد <font color='#FF0000'>*</font></string>
+    <string name="item_name_req">اسم<font color='#FF0000'>*</font></string>
+    <string name="item_price_req">قیمت<font color='#FF0000'>*</font></string>
+    <string name="save_action">ذخیره</string>
+    <string name="item_detail_fragment_title">جزئیات</string>
+    <string name="add_fragment_title">اضزودن کالا</string>
+    <string name="edit_fragment_title">ویرایش کالا</string>
+    <string name="price">قیمت</string>
+    <string name="quantity_in_stock">تعداد</string>
+    <string name="item">کالا</string>
+    <string name="delete">حذف</string>
+    <string name="delete_question">آیا مطمئن هستید که حذف شود؟ </string>
+    <string name="no">نه</string>
+    <string name="yes">بله</string>
+    <string name="currency_symbol">ریال</string>
+    <string name="edit_item">ویرایش کالا</string>
+    <string name="add_new_item">افزودن کالای جدید</string>
+    <string name="hello_blank_fragment">سلام بانک فرگمنت</string>
+    <string name="customer_name">اسم</string>
+    <string name="customer_national_number"># کد ملی:</string>
+    <string name="customer_tel">تلفن</string>
+    <string name="customer_first_name_req">نام</string>
+    <string name="customer_last_name_req">نام خانوادگی</string>
+    <string name="customer_national_number_req">کد ملی</string>
+    <string name="customer_tel_req">تلفن</string>
+    <string name="buy">خرید</string>
+    <string name="customer_first_name">نام</string>
+    <string name="customer_last_name">نام خانوادگی</string>
+    <string name="item_title">اسم کالا</string>
+    <string name="item_quantity_label">تعداد:</string>
+    <string name="item_quantity">4500</string>
+    <string name="item_price">34ریال</string>
+    <string name="item_add_action">افزودن</string>
+    <string name="cancel">انصراف</string>
+    <string name="quantity_req2"><font size="30">تعداد</font></string>
+    <string name="bill_dialog_title_add">دخیره فاکتور</string>
+    <string name="bill_dialog_message_add">فاکتور تولید شود؟</string>
+    <string name="decline">رد</string>
+    <string name="accept">پذیرش</string>
+    <string name="bill_code">3245</string>
+    <string name="bill_customer_name">نام ونام خانوادگی مشتری:</string>
+    <string name="bill_customer_name_sample">محمدرضا علی آبادی</string>
+    <string name="bill_total_price">جمع:</string>
+    <string name="total_price">345ریال</string>
+    <string name="bill_item_count">تعداد کالا:</string>
+    <string name="bill_detail_action">جزئیات</string>
+    <string name="item_total_price_label">جمع</string>
+    <string name="item_quantity_header">تعداد</string>
+    <string name="bill_customer_national_number">3456456789</string>
+    <string name="bill_customer_national_number_label"># کد ملی:</string>
+    <string name="bill_customer_tel_label">تلفن:</string>
+    <string name="bill_customer_tel">09164351332</string>
+    <string name="bill_code_label">شماره فاکتور:</string>
+    <string name="bill_price">456687ریال</string>
+    <string name="bill_date">1402/12/4</string>
+    <string name="bill_date_label">تاریخ:</string>
+    <string name="card">سبد:</string>
+    <string name="total_price_label">جمع:</string>
+    <string name="bill_payment_req">پرداخت:</string>
+    <string name="bill_off_req">تخفیف</string>
+    <string name="bill_off_label">تخفیف:</string>
+    <string name="bill_payment_label">پرداخت:</string>
+    <string name="customer_name_label">نام و نام خانوادگی:</string>
+    <string name="customer_national_number_sample">3420987456</string>
+    <string name="detail">جزئیات</string>
+    <string name="action_bar_search">جستجو</string>
+    <string name="item_customer_name">مشتری</string>
+    <string name="item_bill_code">فاکتور</string>
+    <string name="action">اعمال</string>
+    <string name="menu">منو</string>
+    <string name="bill">فاکتور</string>
+    <string name="customer">مشتری</string>
+    <string name="margin_popup_menu_icon">1</string>
+    <string name="title_activity_main">فروشگاه</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="item_off_req">تخفیف <font color='#FF0000'>*</font></string>
+    <string name="item_quantity_req">تعداد<font color='#FF0000'>*</font></string>
+    <string name="item_description_req">توضیحات<font color='#FF0000'>*</font></string>
+    <string name="item_off_label">تخفیف:</string>
+    <string name="item_name">کالا</string>
+    <string name="item_off">تخفیف</string>
+    <string name="item_price_and_off">قیمت</string>
+    <string name="details_action">جزِئیات</string>
+    <string name="item_description">این کالای خوبی است.</string>
+    <string name="list_item">کالاها</string>
+    <string name="home_name">سبز دشت</string>
+    <string name="fragment_bill_list">فاکتور ها</string>
+    <string name="fragment_customer_list">مشتری ها</string>
+    <string name="fragment_add_customer">مشتری</string>
+    <string name="fragment_customer_detail">جزئیات مشتری</string>
+    <string name="fragment_add_bill">فاکتور</string>
+    <string name="fragment_bill_item_list">فاکتور</string>
+    <string name="fragment_add_bill_home">خرید</string>
+    <string name="fragment_add_bill_card">کارت</string>
+</resources>
